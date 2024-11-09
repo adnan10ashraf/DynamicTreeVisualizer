@@ -22,8 +22,16 @@ def find_ancestors(person_id):
         res.append(people[id])
     return res
 
+def find_common_ancestors(p1, p2):
+    ancestors1 = set(find_ancestors(p1))
+    ancestors2 = set(find_ancestors(p2))
+    ancestors1.intersection_update(ancestors2)
+    return ancestors1
+
+
 if __name__ == "__main__":
     process_data()
     print(people)
     print(parents)
     print(find_ancestors(0))
+    print(find_common_ancestors(0,5))
